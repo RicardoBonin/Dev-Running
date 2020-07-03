@@ -1,4 +1,4 @@
-import { crateActions, createActions } from "reduxsauce";
+import { createActions } from "reduxsauce";
 
 export const { Types, Creators } = createActions({
   signinRequest: ["email", "passwd"],
@@ -8,4 +8,4 @@ export const { Types, Creators } = createActions({
   authSuccess: ["user"],
   authFailure: null,
 });
-export default Creators
+export default Creators;
