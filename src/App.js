@@ -4,7 +4,7 @@ import jwtDecode from "jwt-decode";
 import Header from "./Header";
 import store from "./redux";
 import { Provider } from "react-redux";
-
+import { Route, BrowserRouter as Router } from "react-router-dom";
 function App() {
   // const getToken = async () => {
   //   let token = localStorage.getItem("token");
@@ -31,9 +31,12 @@ function App() {
   // }, []);
   return (
     <Provider store={store}>
-      <div className="App">
-        <Header />
-      </div>
+      <Router>
+        <div className="App">
+          <Route exact path="/" component={Home} />
+          <Header />
+        </div>
+      </Router>
     </Provider>
   );
 }
