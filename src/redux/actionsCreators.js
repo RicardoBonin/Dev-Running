@@ -1,11 +1,11 @@
-import { createActions } from "reduxsauce";
+import { createActions } from 'reduxsauce'
 
 export const { Types, Creators } = createActions({
-  signinRequest: ["email", "passwd"],
-  signinSuccess: ["user"],
-  signinFailure: ["error"],
+  signinRequest: ['email', 'passwd'],
+  signinSuccess: ['user'],
+  signinFailure: ['error'],
   authRequest: null,
-  authSuccess: ["user"],
+  authSuccess: ['user'],
   authFailure: null,
-});
-export default Creators;
+})
+export default Creators

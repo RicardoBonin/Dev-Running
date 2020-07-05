@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import jwtDecode from "jwt-decode";
-import Header from "./Header";
-import store from "./redux";
-import { Provider } from "react-redux";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import jwtDecode from 'jwt-decode'
+import Header from './Header'
+import store from './redux'
+import { Provider } from 'react-redux'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 function App() {
   // const getToken = async () => {
   //   let token = localStorage.getItem("token");
@@ -38,7 +38,7 @@ function App() {
         </div>
       </Router>
     </Provider>
-  );
+  )
 }
 
-export default App;
+export default App
