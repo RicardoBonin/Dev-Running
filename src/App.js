@@ -29,11 +29,18 @@ function App() {
   // useEffect(() => {
   //   getToken();
   // }, []);
+  const Home = () => <h1>Home</h1>
+  const Admin = () => <h1>Admin</h1>
+  const Restrito = () => <h1>Restrito</h1>
+  const Login = () => <h1>Login</h1>
   return (
     <Provider store={store}>
       <Router>
         <div className="App">
           <Route exact path="/" component={Home} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/restrito" component={Restrito} />
+          <Route path="/login" component={Login} />
           <Header />
         </div>
       </Router>
