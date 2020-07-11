@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import jwtDecode from 'jwt-decode'
-import css from 'styled-jsx/css'
+import React from 'react'
+
+import _JSXStyle from 'styled-jsx/style'
 
 import Header from './Header'
 import Home from './screens/Home'
@@ -46,13 +45,13 @@ function App() {
           <Route path='/restrito' component={Restrito} />
           <Route path='/login' component={Login} />
           <Header />
-          <style jsx>{`
+          <_JSXStyle id='App'>{`
             * {
               margin: 0;
               padding: 0;
               box-sizing: border-box;
             }
-          `}</style>
+          `}</_JSXStyle>
         </div>
       </Router>
     </Provider>

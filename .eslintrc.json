@@ -16,6 +16,6 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["prettier", "react", "styled-jsx/babel"],
+  "plugins": ["prettier", "react"],
   "rules": {}
 }
