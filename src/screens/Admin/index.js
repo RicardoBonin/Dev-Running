@@ -16,7 +16,6 @@ const Admin = (props) => {
   return (
     <div>
       <h1>Admin</h1>
-      <pre>{JSON.stringify(props.auth)}</pre>
       <p>
         <Link to='/admin'>Home</Link>
         <Link to='/admin/users'>Users</Link>
