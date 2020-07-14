@@ -1,7 +1,8 @@
-import { takeLatest, all } from 'redux-saga/effects'
+import { takeLatest, all, put } from 'redux-saga/effects'
 import { Types } from '../actionsCreators'
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
+import ActionCreatortors from '../actionsCreators'
 // email: "tuliofaria@devpleno.com",passwd: "abc123",
 function* login(action) {
   console.log('login', action)
@@ -17,10 +18,30 @@ function* login(action) {
     localStorage.setItem('token', token)
     const user = jwtDecode(token)
     localStorage.setItem('user', user)
+    yield put(ActionCreatortors.signinSuccess(user))
+  } else {
+    yield put(ActionCreatortors.signinFailure(login.data.message))
+  }
+}
+function* auth() {
+  const token = localStorage.getItem('token')
+  if (token) {
+    try {
+      const user = jwtDecode(token)
+      yield put(ActionCreatortors.authSuccess(user))
+    } catch (err) {
+      yield put(ActionCreatortors.authFailure('invalid token'))
+    }
+  } else {
+    yield put(ActionCreatortors.authFailure('no token'))
   }
 }
 
 export default function* rootSaga() {
   console.log('root saga')
-  yield all([takeLatest(Types.SIGNIN_REQUEST, login)])
+  yield all([
+    takeLatest(Types.SIGNIN_REQUEST, login),
+    takeLatest(Types.AUTH_REQUEST, auth),
+    put(ActionCreatortors.authRequest()),
+  ])
 }

@@ -1,23 +1,29 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import ActionCreator from '../redux/actionsCreators'
 import { connect } from 'react-redux'
 
 const INITIAL_STATE = {
-  form: {
-    email: '',
-    passwd: '',
-  },
+  email: '',
+  passwd: '',
 }
 
 // eslint-disable-next-line react/prop-types
-const Login = ({ login }) => {
+const Login = ({ login, auth }) => {
   const [state, setState] = useState(INITIAL_STATE)
   const handleChange = (evt) => {
     const { name, value } = evt.target
-    setState({ ...state, form: { [name]: value } })
+    setState({ ...state, [name]: value })
   }
   const loginn = () => {
-    login(state.form.email, state.form.passwd)
+    login(state.email, state.passwd)
+  }
+  if (auth.isAuth) {
+    if (auth.user.role === 'admin') {
+      return <Redirect to='/admin' />
+    }
+    return <Redirect to='/restrito' />
   }
   return (
     <div>
@@ -25,6 +31,7 @@ const Login = ({ login }) => {
       <input type='text' name='email' onChange={handleChange} />
       <input type='password' name='passwd' onChange={handleChange} />
       <button onClick={loginn}>Logar</button>
+      {auth.error && <p>ERRO AO LOGAR!</p>}
     </div>
   )
 }
