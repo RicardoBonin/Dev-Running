@@ -7,5 +7,8 @@ export const { Types, Creators } = createActions({
   authRequest: null,
   authSuccess: ['user'],
   authFailure: null,
+  getRunsRequest: null,
+  getRunsSuccess: ['runs'],
+  getRunsFailure: null,
 })
 export default Creators

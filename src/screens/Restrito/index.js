@@ -2,6 +2,8 @@
 import React from 'react'
 import { Redirect, Link, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
+import Home from './Home'
+import Runs from './Runs'
 
 const Restrito = (props) => {
   console.log(props)
@@ -12,12 +14,12 @@ const Restrito = (props) => {
     <div>
       <h1>Restrito</h1>
       <p>
-        <Link to='/admin'>Home</Link>
-        <Link to='/admin/users'>Users</Link>
+        <Link to='/restrito'>Home</Link>
+        <Link to='/restrito/runs'>Runs</Link>
       </p>
       <div>
         <Route path={`${props.match.path}/`} exact component={Home} />
-        <Route path={`${props.match.path}/users`} component={Users} />
+        <Route path={`${props.match.path}/runs`} component={Runs} />
       </div>
     </div>
   )
