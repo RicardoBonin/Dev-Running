@@ -3,7 +3,7 @@ import { Types } from '../actionsCreators'
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 import ActionCreatortors from '../actionsCreators'
-import { getRuns } from './runs'
+import { getRuns, createRun } from './runs'
 // email: "tuliofaria@devpleno.com",passwd: "abc123",
 function* login(action) {
   console.log('login', action)
@@ -44,6 +44,7 @@ export default function* rootSaga() {
     takeLatest(Types.SIGNIN_REQUEST, login),
     takeLatest(Types.AUTH_REQUEST, auth),
     takeLatest(Types.GET_RUNS_REQUEST, getRuns),
+    takeLatest(Types.CREATE_RUN_REQUEST, createRun),
     put(ActionCreatortors.authRequest()),
   ])
 }

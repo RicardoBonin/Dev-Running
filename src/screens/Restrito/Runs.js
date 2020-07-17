@@ -9,7 +9,7 @@ const Runs = ({ load, runs }) => {
     load()
   }, [])
 
-  return <h1>Runs</h1>
+  return <h1>Runs 19 min</h1>
 }
 const mapStateToProps = (state) => {
   return {
