@@ -51,6 +51,12 @@ function App() {
               padding: 0;
               box-sizing: border-box;
             }
+            body{
+              display: flex;
+              align-item: center;
+              justify-content: center;
+              text-align: center;
+            }
           `}</_JSXStyle>
         </div>
       </Router>
