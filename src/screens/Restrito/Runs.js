@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react'
 import ActionCreators from '../../redux/actionsCreators'
 import { connect } from 'react-redux'
+import { Table, Button } from 'semantic-ui-react'
 
 const Runs = ({ load, create, runs }) => {
   console.log(runs)
@@ -20,18 +21,26 @@ const Runs = ({ load, create, runs }) => {
   console.log(runs.data)
   return (
     <div>
-      <h1>Runs</h1>
-      <button onClick={run}>Create</button>
+      <h1>Corridas</h1>
+      <Button onClick={run}>Create</Button>
       {runs.data.map((run) => {
         return (
-          <table key={run}>
-            <tr>
-              <td>{run.friendly_name}</td>
-              <td>{run.duration}</td>
-              <td>{run.distance}</td>
-              <td>{run.create}</td>
-            </tr>
-          </table>
+          <Table celled key={run}>
+            <Table.Header>
+              <Table.HeaderCell>Nome</Table.HeaderCell>
+              <Table.HeaderCell>Duração</Table.HeaderCell>
+              <Table.HeaderCell>Distância</Table.HeaderCell>
+              <Table.HeaderCell>Data</Table.HeaderCell>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>{run.friendly_name}</Table.Cell>
+                <Table.Cell>{run.duration}</Table.Cell>
+                <Table.Cell>{run.distance}</Table.Cell>
+                <Table.Cell>{run.created}</Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
         )
       })}
     </div>
